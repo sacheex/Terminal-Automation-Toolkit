@@ -1,0 +1,76 @@
+#!/bin/bash
+
+if [ "$#" -eq 0 ]; then
+    echo "Error: No arguments provided. Please use './proxychains-editor -h' for usage information."
+    exit 1
+fi
+
+ARGS=$(getopt -o p:i:P:h --long port:,ip:,protocol:,help -n "$0" -- "$@")
+if [ $? -ne 0 ]; then
+    echo "Error: Invalid option."
+    exit 1
+fi
+
+eval set -- "$ARGS"
+
+while true; do
+    case "$1" in
+        -p|--port)
+            port="$2"
+            shift 2
+            ;;
+        -i|--ip)
+            ip="$2"
+            shift 2
+            ;;
+        -P|--protocol)
+            protocol="$2"
+            shift 2
+            ;;
+        -f|--file)
+            file="$2"
+            shift 2
+
+            flag=false
+            i=1
+            while read line
+            do
+                # if [ "$line" = "# defaults set to \"tor\"" ]; then
+                #     flag=true
+                #     continue
+                # fi
+
+                # if [ "$flag" = true ]; then
+                #     echo $i. $line
+                #     ((i+=1))
+                # fi
+                echo "$line"
+            done < /etc/proxychains4.conf
+            ;;
+        -h|--help)
+            echo "Usage:
+
+$0 -p|--port <port> -i|--ip <ip_address> -P|--protocol <protocol> [-h|--help]
+$0 -f <file name>"
+            exit 0
+            ;;
+        --)
+            shift
+            break
+            ;;
+        *)
+            echo "Error: Invalid argument."
+            exit 1
+            ;;
+    esac
+done
+
+positional_arg="$1"
+
+# Uncomment the following lines if you want to print the values
+# echo "Ip address: $ip"
+# echo "Protocol: $protocol"
+# echo "Port: $port"
+
+echo "$protocol $ip $port" >> /etc/proxychains4.conf
+echo "Successfully added the proxy to the file"
