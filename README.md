@@ -7,14 +7,14 @@ Welcome to the Terminal Automation Toolkit! This repository is a collection of p
 
 ## Features
 
-- **proxychains-editor:** Edit proxychains4.conf file easyly
-    -
-        
-        Usage:
+ **proxychains-editor:** Edit proxychains4.conf file easyly
+ 
+```bash        
+ Usage:
 
         ./proxychains-editor -p|--port <port> -i|--ip <ip_address> -P|--protocol <protocol> [-h|--help]
         ./proxychains-editor -f <file name>
-    -
+```
   
 
         
