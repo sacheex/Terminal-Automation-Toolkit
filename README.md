@@ -17,5 +17,5 @@ Welcome to the Terminal Automation Toolkit! This repository is a collection of p
 ```
   
 
-        
+You can Download All the releases of these tools seperately by going to the [Releases](https://github.com/sacheex/Terminal-Automation-Toolkit/releases/tag/v1.0.0) section of this repository 
 
