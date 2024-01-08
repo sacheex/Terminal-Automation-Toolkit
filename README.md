@@ -8,7 +8,7 @@ Welcome to the Terminal Automation Toolkit! This repository is a collection of p
 ## Features
 
  **wpa2hunter:** Capture WPA2 Handshake and crack the wifi password
- - You can read full documentry about wpa2hanshake [here](https://github.com/sacheex/WPA2-WIFI-Password-Cracker)
+ - You can read full documentry about wpa2hunter [here](https://github.com/sacheex/WPA2-WIFI-Password-Cracker)
 
 
  **proxychains-editor:** Edit proxychains4.conf file easyly
